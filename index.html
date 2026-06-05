@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaiser Logistics — Sistema de Gestión</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="app-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-mark">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="8" fill="#1d4ed8" />
+            <path d="M6 23L11 10L16 19L21 13L27 23H6Z" fill="white" opacity="0.95" />
+            <rect x="6" y="23" width="21" height="3" rx="1.5" fill="white" opacity="0.5" />
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">Kaiser</span>
+          <span class="logo-sub">Logistics</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section-label">Principal</div>
+      <nav class="sidebar-nav">
+        <a class="nav-item active" data-page="dashboard" onclick="navigateTo('dashboard')">
+          <svg class="nav-icon" viewBox="0 0 20 20" fill="none">
+            <rect x="2" y="2" width="7" height="7" rx="1.5" fill="currentColor" />
+            <rect x="11" y="2" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.55" />
+            <rect x="2" y="11" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.55" />
+            <rect x="11" y="11" width="7" height="7" rx="1.5" fill="currentColor" />
+          </svg>
+          <span>Dashboard</span>
+        </a>
+        <a class="nav-item" data-page="monitoring" onclick="navigateTo('monitoring')">
+          <svg class="nav-icon" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="7.5" stroke="currentColor" stroke-width="1.8" />
+            <circle cx="10" cy="10" r="2.8" fill="currentColor" />
+            <line x1="10" y1="2.5" x2="10" y2="5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            <line x1="10" y1="15" x2="10" y2="17.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            <line x1="2.5" y1="10" x2="5" y2="10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            <line x1="15" y1="10" x2="17.5" y2="10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <span>Monitoreo</span>
+          <span class="nav-live">EN VIVO</span>
+        </a>
+        <a class="nav-item" data-page="products" onclick="navigateTo('products')">
+          <svg class="nav-icon" viewBox="0 0 20 20" fill="none">
+            <path d="M3 6L10 3L17 6V14L10 17L3 14V6Z" stroke="currentColor" stroke-width="1.8"
+              stroke-linejoin="round" />
+            <path d="M10 3V17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            <path d="M3 6L17 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <span>Productos</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-section-label">Operaciones</div>
+      <nav class="sidebar-nav">
+        <a class="nav-item" data-page="history" onclick="navigateTo('history')">
+          <svg class="nav-icon" viewBox="0 0 20 20" fill="none">
+            <rect x="3" y="4" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.8" />
+            <line x1="6" y1="8.5" x2="14" y2="8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            <line x1="6" y1="11.5" x2="14" y2="11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            <line x1="6" y1="14" x2="10" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M7 3V5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            <path d="M13 3V5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <span>Historial</span>
+        </a>
+        <a class="nav-item" data-page="control" onclick="navigateTo('control')">
+          <svg class="nav-icon" viewBox="0 0 20 20" fill="none">
+            <rect x="2" y="2" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.8" />
+            <circle cx="7" cy="7" r="1.5" fill="currentColor" />
+            <circle cx="13" cy="7" r="1.5" fill="currentColor" opacity="0.5" />
+            <rect x="5" y="11" width="10" height="2" rx="1" fill="currentColor" opacity="0.7" />
+          </svg>
+          <span>Centro de Control</span>
+        </a>
+        <a class="nav-item" data-page="reports" onclick="navigateTo('reports')">
+          <svg class="nav-icon" viewBox="0 0 20 20" fill="none">
+            <rect x="2" y="13" width="4" height="5" rx="1" fill="currentColor" />
+            <rect x="8" y="9" width="4" height="9" rx="1" fill="currentColor" opacity="0.65" />
+            <rect x="14" y="4" width="4" height="14" rx="1" fill="currentColor" opacity="0.45" />
+            <path d="M4 7.5L9 5L14 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span>Reportes</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-section-label">Sistema</div>
+      <nav class="sidebar-nav">
+        <a class="nav-item" data-page="settings" onclick="navigateTo('settings')">
+          <svg class="nav-icon" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8" />
+            <path
+              d="M10 2.5V4M10 16V17.5M2.5 10H4M16 10H17.5M4.4 4.4L5.5 5.5M14.5 14.5L15.6 15.6M4.4 15.6L5.5 14.5M14.5 5.5L15.6 4.4"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <span>Configuración</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-avatar-sm">KL</div>
+        <div class="user-info">
+          <span class="user-name">Admin Kaiser</span>
+          <span class="user-role">Supervisor General</span>
+        </div>
+        <div class="user-online-dot"></div>
+      </div>
+    </aside>
+
+    <!-- MAIN WRAPPER -->
+    <div class="main-wrapper">
+
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <button class="menu-toggle" id="menu-toggle" onclick="toggleSidebar()" aria-label="Menú">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="breadcrumb">
+            <span class="breadcrumb-root">Kaiser Logistics</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M5 3L9 7L5 11" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span class="breadcrumb-current" id="breadcrumb-label">Dashboard</span>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="header-datetime">
+            <div class="header-time" id="live-time">00:00</div>
+            <div class="header-date" id="live-date">---</div>
+          </div>
+          <div class="header-status-pill">
+            <span class="pulse-dot green"></span>
+            <span>Sistema operativo</span>
+          </div>
+          <div class="header-avatar">KL</div>
+        </div>
+      </header>
+
+      <!-- Content Area -->
+      <main class="content-area">
+
+        <!-- ============================== DASHBOARD ============================== -->
+        <section id="page-dashboard" class="page active">
+          <div class="page-hero">
+            <div>
+              <h1 class="page-title">Bienvenido de nuevo</h1>
+              <p class="page-subtitle">Resumen operacional del día — <span id="today-full-date"></span></p>
+            </div>
+            <div class="hero-actions">
+              <button class="btn-secondary" onclick="navigateTo('reports')">Ver reportes</button>
+              <button class="btn-primary" onclick="navigateTo('control')">Centro de control</button>
+            </div>
+          </div>
+
+          <div class="status-bar">
+            <div class="status-chip green"><span class="pulse-dot green"></span>Operación estable</div>
+            <div class="status-chip blue"><span class="pulse-dot blue"></span>Almacén activo</div>
+            <div class="status-chip amber"><span class="pulse-dot amber"></span>Transporte en curso</div>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-icon-wrap blue">
+                <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+                  <path d="M3 12L5 5H19L21 12" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <rect x="1" y="12" width="22" height="8" rx="2" stroke="white" stroke-width="2" />
+                  <circle cx="7" cy="20.5" r="2" fill="white" />
+                  <circle cx="17" cy="20.5" r="2" fill="white" />
+                </svg>
+              </div>
+              <div class="kpi-data">
+                <span class="kpi-value" id="kpi-transportes">0</span>
+                <span class="kpi-label">Transportes realizados</span>
+              </div>
+              <div class="kpi-trend up">
+                <svg viewBox="0 0 12 12" fill="none" width="12" height="12">
+                  <path d="M2 9L6 4L10 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                +12% hoy
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon-wrap green">
+                <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+                  <path d="M12 2L3 7V17L12 22L21 17V7L12 2Z" stroke="white" stroke-width="2" stroke-linejoin="round" />
+                  <path d="M12 22V12" stroke="white" stroke-width="2" />
+                  <path d="M3 7L12 12L21 7" stroke="white" stroke-width="2" />
+                </svg>
+              </div>
+              <div class="kpi-data">
+                <span class="kpi-value" id="kpi-productos">0</span>
+                <span class="kpi-label">Productos procesados hoy</span>
+              </div>
+              <div class="kpi-trend up">
+                <svg viewBox="0 0 12 12" fill="none" width="12" height="12">
+                  <path d="M2 9L6 4L10 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                +8 última hora
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon-wrap teal">
+                <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+                  <circle cx="12" cy="12" r="9" stroke="white" stroke-width="2" />
+                  <path d="M12 7V12L15.5 15.5" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="kpi-data">
+                <span class="kpi-value" id="kpi-rutas">0</span>
+                <span class="kpi-label">Rutas completadas</span>
+              </div>
+              <div class="kpi-trend up">
+                <svg viewBox="0 0 12 12" fill="none" width="12" height="12">
+                  <path d="M2 9L6 4L10 7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                +4 hoy
+              </div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-icon-wrap amber">
+                <svg viewBox="0 0 24 24" fill="none" width="22" height="22">
+                  <rect x="2" y="7" width="20" height="14" rx="2" stroke="white" stroke-width="2" />
+                  <path d="M7 7V5C7 3.9 7.9 3 9 3H15C16.1 3 17 3.9 17 5V7" stroke="white" stroke-width="2" />
+                  <circle cx="12" cy="14" r="2" fill="white" />
+                </svg>
+              </div>
+              <div class="kpi-data">
+                <span class="kpi-value" id="kpi-vehiculos">0</span>
+                <span class="kpi-label">Vehículos activos</span>
+              </div>
+              <div class="kpi-trend stable">100% disponibles</div>
+            </div>
+          </div>
+
+          <div class="charts-row">
+            <div class="chart-card wide">
+              <div class="chart-header">
+                <div>
+                  <h3 class="chart-title">Actividad semanal</h3>
+                  <p class="chart-subtitle">Transportes completados por día</p>
+                </div>
+                <div class="chart-legend-wrap">
+                  <span class="legend-dot blue"></span><span class="legend-text">Esta semana</span>
+                </div>
+              </div>
+              <div class="bar-chart-wrap">
+                <div class="bar-chart">
+                  <div class="bar-col">
+                    <div class="bar blue" style="--h:65%"></div><span class="bar-label">Lun</span><span
+                      class="bar-val">182</span>
+                  </div>
+                  <div class="bar-col">
+                    <div class="bar blue" style="--h:80%"></div><span class="bar-label">Mar</span><span
+                      class="bar-val">224</span>
+                  </div>
+                  <div class="bar-col">
+                    <div class="bar blue" style="--h:55%"></div><span class="bar-label">Mié</span><span
+                      class="bar-val">153</span>
+                  </div>
+                  <div class="bar-col">
+                    <div class="bar blue peak" style="--h:90%"></div><span class="bar-label">Jue</span><span
+                      class="bar-val">251</span>
+                  </div>
+                  <div class="bar-col">
+                    <div class="bar blue" style="--h:72%"></div><span class="bar-label">Vie</span><span
+                      class="bar-val">201</span>
+                  </div>
+                  <div class="bar-col">
+                    <div class="bar muted" style="--h:45%"></div><span class="bar-label">Sáb</span><span
+                      class="bar-val">126</span>
+                  </div>
+                  <div class="bar-col">
+                    <div class="bar muted" style="--h:30%"></div><span class="bar-label">Dom</span><span
+                      class="bar-val">84</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-card narrow">
+              <div class="chart-header">
+                <div>
+                  <h3 class="chart-title">Distribución</h3>
+                  <p class="chart-subtitle">Por tipo de producto</p>
+                </div>
+              </div>
+              <div class="donut-wrap">
+                <div class="donut-ring">
+                  <div class="donut-center">
+                    <span class="donut-total">1,247</span>
+                    <span class="donut-label">total</span>
+                  </div>
+                </div>
+              </div>
+              <div class="donut-legend-list">
+                <div class="legend-row"><span class="legend-swatch blue"></span><span
+                    class="legend-name">Botellas</span><span class="legend-pct">45%</span></div>
+                <div class="legend-row"><span class="legend-swatch green"></span><span
+                    class="legend-name">Celulares</span><span class="legend-pct">28%</span></div>
+                <div class="legend-row"><span class="legend-swatch amber"></span><span
+                    class="legend-name">Tazas</span><span class="legend-pct">27%</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================== MONITORING ============================== -->
+        <section id="page-monitoring" class="page">
+          <div class="page-hero">
+            <div>
+              <h1 class="page-title">Monitoreo de Operaciones</h1>
+              <p class="page-subtitle">Seguimiento en tiempo real del transporte interno del almacén</p>
+            </div>
+            <div class="hero-actions">
+              <div class="status-chip green"><span class="pulse-dot green"></span>En operación</div>
+            </div>
+          </div>
+
+          <div class="monitoring-layout">
+            <div class="map-card">
+              <div class="map-header">
+                <h3>Mapa del Almacén — Planta Principal</h3>
+                <div class="map-legend">
+                  <span><span class="map-dot blue"></span> Vehículo</span>
+                  <span><span class="map-dot green"></span> Zona activa</span>
+                </div>
+              </div>
+              <div class="warehouse-map" id="warehouse-map">
+                <div class="wm-zone zone-a" id="zone-a">
+                  <div class="zone-tag">A</div>
+                  <div class="zone-title">Recepción</div>
+                  <div class="zone-units">38 uds</div>
+                </div>
+                <div class="wm-zone zone-b" id="zone-b">
+                  <div class="zone-tag">B</div>
+                  <div class="zone-title">Procesamiento</div>
+                  <div class="zone-units">52 uds</div>
+                </div>
+                <div class="wm-zone zone-c" id="zone-c">
+                  <div class="zone-tag">C</div>
+                  <div class="zone-title">Despacho</div>
+                  <div class="zone-units">29 uds</div>
+                </div>
+                <div class="path-h"></div>
+                <div class="path-v-left"></div>
+                <div class="path-v-right"></div>
+                <div class="vehicle-dot" id="vehicle-dot">
+                  <div class="vehicle-pulse"></div>
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                    <rect x="2" y="8" width="14" height="9" rx="2" fill="#1d4ed8" />
+                    <path d="M16 10.5H19L19.5 16H16V10.5Z" fill="#1e40af" />
+                    <circle cx="5.5" cy="18" r="2" fill="#1e293b" />
+                    <circle cx="13" cy="18" r="2" fill="#1e293b" />
+                    <rect x="4" y="10" width="6" height="3.5" rx="0.8" fill="#93c5fd" />
+                  </svg>
+                </div>
+              </div>
+              <div class="map-stats-row">
+                <div class="mstat"><span class="mstat-label">Zona activa</span><span class="mstat-val"
+                    id="active-zone">A → B</span></div>
+                <div class="mstat"><span class="mstat-label">Tiempo en ruta</span><span class="mstat-val"
+                    id="route-time">04:32</span></div>
+                <div class="mstat"><span class="mstat-label">Velocidad</span><span class="mstat-val">0.8 m/s</span>
+                </div>
+                <div class="mstat"><span class="mstat-label">Temperatura</span><span class="mstat-val">22 °C</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="monitoring-side">
+              <div class="info-panel">
+                <h4 class="panel-heading">Estado del vehículo</h4>
+                <div class="vehicle-row">
+                  <div class="vr-indicator active"></div>
+                  <div class="vr-info">
+                    <span class="vr-name">Unidad KL-01</span>
+                    <span class="vr-status">En movimiento</span>
+                  </div>
+                  <div class="vr-battery">
+                    <div class="bat-track">
+                      <div class="bat-fill" style="width:78%"></div>
+                    </div>
+                    <span>78%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-panel">
+                <h4 class="panel-heading">Misión actual</h4>
+                <div class="mission-rows">
+                  <div class="mr"><span class="mr-key">Producto</span><span class="mr-val highlight"
+                      id="mission-product">Botellas</span></div>
+                  <div class="mr"><span class="mr-key">Ubicación</span><span class="mr-val" id="mission-location">Zona
+                      A</span></div>
+                  <div class="mr"><span class="mr-key">Destino</span><span class="mr-val" id="mission-dest">Zona
+                      B</span></div>
+                  <div class="mr"><span class="mr-key">Estado</span><span class="badge-pill green">En curso</span></div>
+                </div>
+                <div class="route-progress">
+                  <div class="rp-top"><span>Progreso de ruta</span><span id="route-pct">62%</span></div>
+                  <div class="rp-track">
+                    <div class="rp-fill" id="route-fill" style="width:62%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-panel">
+                <h4 class="panel-heading">Operaciones del día</h4>
+                <div class="ops-timeline">
+                  <div class="ot-item done"><span class="ot-dot done"></span>
+                    <div class="ot-info"><span>Zona A → Zona B</span><span class="ot-time">08:14</span></div>
+                  </div>
+                  <div class="ot-item done"><span class="ot-dot done"></span>
+                    <div class="ot-info"><span>Zona B → Zona C</span><span class="ot-time">09:31</span></div>
+                  </div>
+                  <div class="ot-item done"><span class="ot-dot done"></span>
+                    <div class="ot-info"><span>Zona C → Zona A</span><span class="ot-time">10:48</span></div>
+                  </div>
+                  <div class="ot-item active"><span class="ot-dot active pulse"></span>
+                    <div class="ot-info"><span>Zona A → Zona B</span><span class="ot-time">Ahora</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================== PRODUCTS ============================== -->
+        <section id="page-products" class="page">
+          <div class="page-hero">
+            <div>
+              <h1 class="page-title">Gestión de Productos</h1>
+              <p class="page-subtitle">Inventario y estado de los productos en el sistema de transporte</p>
+            </div>
+          </div>
+
+          <div class="products-grid">
+            <div class="product-card">
+              <div class="product-img-wrap" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe)">
+                <img
+                  src="https://images.pexels.com/photos/1000084/pexels-photo-1000084.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop"
+                  alt="Botellas" />
+                <span class="product-tag blue">Botellas</span>
+              </div>
+              <div class="product-body">
+                <div class="prod-stats">
+                  <div class="ps"><span class="ps-n">561</span><span class="ps-l">Procesadas</span></div>
+                  <div class="ps"><span class="ps-n">38</span><span class="ps-l">En tránsito</span></div>
+                  <div class="ps"><span class="ps-n">12</span><span class="ps-l">En espera</span></div>
+                </div>
+                <div class="prod-info">
+                  <div class="pi"><span>Estado</span><span class="badge-pill green">Activo</span></div>
+                  <div class="pi"><span>Destino</span><span>Zona B — Procesamiento</span></div>
+                  <div class="pi"><span>Actualizado</span><span>Hace 3 min</span></div>
+                </div>
+                <div class="prod-progress">
+                  <div class="pp-head"><span>Avance del día</span><span>45%</span></div>
+                  <div class="pp-track">
+                    <div class="pp-fill blue" style="width:45%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-img-wrap" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">
+                <img
+                  src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop"
+                  alt="Tazas" />
+                <span class="product-tag amber">Tazas</span>
+              </div>
+              <div class="product-body">
+                <div class="prod-stats">
+                  <div class="ps"><span class="ps-n">337</span><span class="ps-l">Procesadas</span></div>
+                  <div class="ps"><span class="ps-n">21</span><span class="ps-l">En tránsito</span></div>
+                  <div class="ps"><span class="ps-n">7</span><span class="ps-l">En espera</span></div>
+                </div>
+                <div class="prod-info">
+                  <div class="pi"><span>Estado</span><span class="badge-pill green">Activo</span></div>
+                  <div class="pi"><span>Destino</span><span>Zona A — Recepción</span></div>
+                  <div class="pi"><span>Actualizado</span><span>Hace 7 min</span></div>
+                </div>
+                <div class="prod-progress">
+                  <div class="pp-head"><span>Avance del día</span><span>27%</span></div>
+                  <div class="pp-track">
+                    <div class="pp-fill amber" style="width:27%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-img-wrap" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0)">
+                <img
+                  src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop"
+                  alt="Celulares" />
+                <span class="product-tag green">Celulares</span>
+              </div>
+              <div class="product-body">
+                <div class="prod-stats">
+                  <div class="ps"><span class="ps-n">349</span><span class="ps-l">Procesadas</span></div>
+                  <div class="ps"><span class="ps-n">29</span><span class="ps-l">En tránsito</span></div>
+                  <div class="ps"><span class="ps-n">5</span><span class="ps-l">En espera</span></div>
+                </div>
+                <div class="prod-info">
+                  <div class="pi"><span>Estado</span><span class="badge-pill amber">Pausado</span></div>
+                  <div class="pi"><span>Destino</span><span>Zona C — Despacho</span></div>
+                  <div class="pi"><span>Actualizado</span><span>Hace 15 min</span></div>
+                </div>
+                <div class="prod-progress">
+                  <div class="pp-head"><span>Avance del día</span><span>28%</span></div>
+                  <div class="pp-track">
+                    <div class="pp-fill green" style="width:28%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================== HISTORY ============================== -->
+        <section id="page-history" class="page">
+          <div class="page-hero">
+            <div>
+              <h1 class="page-title">Historial de Operaciones</h1>
+              <p class="page-subtitle">Registro completo de todas las actividades de transporte</p>
+            </div>
+            <div class="hero-actions">
+              <button class="btn-secondary">Exportar CSV</button>
+              <button class="btn-primary">Filtros avanzados</button>
+            </div>
+          </div>
+
+          <div class="filter-bar">
+            <div class="filter-tabs">
+              <button class="ftab active" onclick="filterHistory('todos', this)">Todos</button>
+              <button class="ftab" onclick="filterHistory('Completado', this)">Completados</button>
+              <button class="ftab" onclick="filterHistory('En proceso', this)">En proceso</button>
+              <button class="ftab" onclick="filterHistory('Cancelado', this)">Cancelados</button>
+            </div>
+            <div class="filter-search">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <circle cx="6.5" cy="6.5" r="4.5" stroke="#94a3b8" stroke-width="1.5" />
+                <path d="M10.5 10.5L14 14" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+              <input type="text" placeholder="Buscar por producto, destino..." id="history-search"
+                oninput="searchHistory()" />
+            </div>
+          </div>
+
+          <div class="table-card">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>N°</th>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Producto</th>
+                  <th>Origen</th>
+                  <th>Destino</th>
+                  <th>Duración</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody id="history-tbody"></tbody>
+            </table>
+            <div class="table-footer">
+              <span id="table-count">Mostrando 20 registros</span>
+              <div class="pagination">
+                <button class="pg-btn active">1</button>
+                <button class="pg-btn">2</button>
+                <button class="pg-btn">3</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================== CONTROL CENTER ============================== -->
+        <section id="page-control" class="page">
+          <div class="page-hero">
+            <div>
+              <h1 class="page-title">Centro de Control</h1>
+              <p class="page-subtitle">Gestión y supervisión completa de las operaciones internas</p>
+            </div>
+          </div>
+
+          <div class="control-layout">
+            <div class="control-main-col">
+              <div class="control-panel">
+                <h3 class="cp-title">Control de Operación</h3>
+                <p class="cp-desc">Administre el ciclo completo de las operaciones de transporte interno del almacén.
+                </p>
+
+                <div class="op-display" id="op-display">
+                  <div class="op-display-icon idle" id="op-icon-wrap">
+                    <svg viewBox="0 0 48 48" fill="none" width="48" height="48">
+                      <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2.5" opacity="0.4" />
+                      <path d="M19 15L33 24L19 33V15Z" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="op-display-status" id="op-status-label">Disponible</div>
+                    <div class="op-display-desc" id="op-status-desc">Sistema listo para iniciar operaciones</div>
+                  </div>
+                </div>
+
+                <div class="op-buttons-grid">
+                  <button class="op-btn start" id="btn-start" onclick="opStart()">
+                    <svg viewBox="0 0 20 20" fill="none" width="18" height="18">
+                      <path d="M7 4.5L16 10L7 15.5V4.5Z" fill="currentColor" />
+                    </svg>
+                    Iniciar operación
+                  </button>
+                  <button class="op-btn pause" id="btn-pause" onclick="opPause()" disabled>
+                    <svg viewBox="0 0 20 20" fill="none" width="18" height="18">
+                      <rect x="5" y="4" width="3.5" height="12" rx="1" fill="currentColor" />
+                      <rect x="11.5" y="4" width="3.5" height="12" rx="1" fill="currentColor" />
+                    </svg>
+                    Pausar operación
+                  </button>
+                  <button class="op-btn resume" id="btn-resume" onclick="opResume()" disabled>
+                    <svg viewBox="0 0 20 20" fill="none" width="18" height="18">
+                      <path d="M6 4L14 10L6 16V4Z" fill="currentColor" />
+                      <line x1="15" y1="4" x2="15" y2="16" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                    </svg>
+                    Reanudar operación
+                  </button>
+                  <button class="op-btn stop" id="btn-stop" onclick="opStop()" disabled>
+                    <svg viewBox="0 0 20 20" fill="none" width="18" height="18">
+                      <rect x="5" y="5" width="10" height="10" rx="1.5" fill="currentColor" />
+                    </svg>
+                    Finalizar operación
+                  </button>
+                </div>
+              </div>
+
+              <div class="log-panel">
+                <div class="log-panel-header">
+                  <h4>Registro de actividad</h4>
+                  <span class="live-tag"><span class="pulse-dot green"></span>Tiempo real</span>
+                </div>
+                <div class="log-entries" id="op-log">
+                  <div class="log-entry info"><span class="log-time">08:00</span><span class="log-msg">Sistema iniciado
+                      correctamente</span></div>
+                  <div class="log-entry success"><span class="log-time">08:14</span><span class="log-msg">Operación
+                      completada — Zona A → Zona B</span></div>
+                  <div class="log-entry success"><span class="log-time">09:31</span><span class="log-msg">Operación
+                      completada — Zona B → Zona C</span></div>
+                  <div class="log-entry info"><span class="log-time">10:12</span><span class="log-msg">Vehículo KL-01
+                      retornó a posición base</span></div>
+                  <div class="log-entry success"><span class="log-time">10:48</span><span class="log-msg">Operación
+                      completada — Zona C → Zona A</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="control-side-col">
+              <div class="side-panel">
+                <h4 class="panel-heading">Indicadores de estado</h4>
+                <div class="indicators-list">
+                  <div class="ind" id="ind-disponible">
+                    <div class="ind-led green active"></div>
+                    <div class="ind-text"><span class="ind-name">Disponible</span><span class="ind-desc">Sistema en
+                        espera</span></div>
+                    <svg class="ind-check show" viewBox="0 0 16 16" fill="none" width="16" height="16"
+                      id="chk-disponible">
+                      <circle cx="8" cy="8" r="7" fill="#10b981" />
+                      <path d="M5 8.5L7 10.5L11 6" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                  <div class="ind" id="ind-proceso">
+                    <div class="ind-led gray" id="led-proceso"></div>
+                    <div class="ind-text"><span class="ind-name">En proceso</span><span class="ind-desc">Operación
+                        activa</span></div>
+                    <svg class="ind-check" viewBox="0 0 16 16" fill="none" width="16" height="16" id="chk-proceso">
+                      <circle cx="8" cy="8" r="7" fill="#10b981" />
+                      <path d="M5 8.5L7 10.5L11 6" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                  <div class="ind" id="ind-completado">
+                    <div class="ind-led gray" id="led-completado"></div>
+                    <div class="ind-text"><span class="ind-name">Completado</span><span class="ind-desc">Operación
+                        finalizada</span></div>
+                    <svg class="ind-check" viewBox="0 0 16 16" fill="none" width="16" height="16" id="chk-completado">
+                      <circle cx="8" cy="8" r="7" fill="#10b981" />
+                      <path d="M5 8.5L7 10.5L11 6" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="side-panel">
+                <h4 class="panel-heading">Unidades disponibles</h4>
+                <div class="units-list">
+                  <div class="unit">
+                    <div class="unit-led green"></div><span class="unit-id">KL-01</span><span
+                      class="unit-s green">Activo</span><span class="unit-bat">78%</span>
+                  </div>
+                  <div class="unit">
+                    <div class="unit-led amber"></div><span class="unit-id">KL-02</span><span class="unit-s amber">En
+                      espera</span><span class="unit-bat">92%</span>
+                  </div>
+                  <div class="unit">
+                    <div class="unit-led amber"></div><span class="unit-id">KL-03</span><span class="unit-s amber">En
+                      espera</span><span class="unit-bat">65%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="side-panel">
+                <h4 class="panel-heading">Resumen del turno</h4>
+                <div class="shift-grid">
+                  <div class="sg"><span class="sg-n">12</span><span class="sg-l">Operaciones</span></div>
+                  <div class="sg"><span class="sg-n">3</span><span class="sg-l">En curso</span></div>
+                  <div class="sg"><span class="sg-n">98%</span><span class="sg-l">Eficiencia</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================== REPORTS ============================== -->
+        <section id="page-reports" class="page">
+          <div class="page-hero">
+            <div>
+              <h1 class="page-title">Reportes</h1>
+              <p class="page-subtitle">Análisis de rendimiento y actividad operacional</p>
+            </div>
+            <div class="hero-actions">
+              <button class="btn-secondary">Imprimir</button>
+              <button class="btn-primary">Descargar PDF</button>
+            </div>
+          </div>
+
+          <div class="report-kpis">
+            <div class="rk-card"><span class="rk-val">98.4%</span><span class="rk-label">Eficiencia global</span>
+              <div class="rk-bar">
+                <div style="width:98.4%;background:#2563eb" class="rk-fill"></div>
+              </div>
+            </div>
+            <div class="rk-card"><span class="rk-val">1,247</span><span class="rk-label">Transportes esta semana</span>
+              <div class="rk-bar">
+                <div style="width:80%;background:#10b981" class="rk-fill"></div>
+              </div>
+            </div>
+            <div class="rk-card"><span class="rk-val">4.2 min</span><span class="rk-label">Tiempo promedio por
+                ruta</span>
+              <div class="rk-bar">
+                <div style="width:60%;background:#f59e0b" class="rk-fill"></div>
+              </div>
+            </div>
+            <div class="rk-card"><span class="rk-val">0</span><span class="rk-label">Incidentes registrados</span>
+              <div class="rk-bar">
+                <div style="width:0%;background:#ef4444" class="rk-fill"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reports-grid">
+            <div class="report-chart-card wide">
+              <div class="chart-header">
+                <div>
+                  <h3 class="chart-title">Rendimiento diario</h3>
+                  <p class="chart-subtitle">Operaciones completadas — Semana actual</p>
+                </div>
+              </div>
+              <div class="horiz-chart">
+                <div class="hc-row"><span class="hc-label">Lunes</span>
+                  <div class="hc-track">
+                    <div class="hc-fill blue" style="width:82%"></div>
+                  </div><span class="hc-val">182</span>
+                </div>
+                <div class="hc-row"><span class="hc-label">Martes</span>
+                  <div class="hc-track">
+                    <div class="hc-fill blue" style="width:100%"></div>
+                  </div><span class="hc-val">224 ★</span>
+                </div>
+                <div class="hc-row"><span class="hc-label">Miércoles</span>
+                  <div class="hc-track">
+                    <div class="hc-fill blue" style="width:68%"></div>
+                  </div><span class="hc-val">153</span>
+                </div>
+                <div class="hc-row"><span class="hc-label">Jueves</span>
+                  <div class="hc-track">
+                    <div class="hc-fill blue" style="width:95%"></div>
+                  </div><span class="hc-val">251</span>
+                </div>
+                <div class="hc-row"><span class="hc-label">Viernes</span>
+                  <div class="hc-track">
+                    <div class="hc-fill blue" style="width:89%"></div>
+                  </div><span class="hc-val">201</span>
+                </div>
+                <div class="hc-row"><span class="hc-label">Sábado</span>
+                  <div class="hc-track">
+                    <div class="hc-fill muted" style="width:56%"></div>
+                  </div><span class="hc-val">126</span>
+                </div>
+                <div class="hc-row"><span class="hc-label">Domingo</span>
+                  <div class="hc-track">
+                    <div class="hc-fill muted" style="width:37%"></div>
+                  </div><span class="hc-val">84</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="report-chart-card narrow">
+              <div class="chart-header">
+                <div>
+                  <h3 class="chart-title">Por producto</h3>
+                  <p class="chart-subtitle">Distribución semanal</p>
+                </div>
+              </div>
+              <div class="donut-wrap">
+                <div class="donut-ring">
+                  <div class="donut-center"><span class="donut-total">1,247</span><span class="donut-label">total</span>
+                  </div>
+                </div>
+              </div>
+              <div class="donut-legend-list">
+                <div class="legend-row"><span class="legend-swatch blue"></span><span
+                    class="legend-name">Botellas</span><span class="legend-pct">45%</span></div>
+                <div class="legend-row"><span class="legend-swatch green"></span><span
+                    class="legend-name">Celulares</span><span class="legend-pct">28%</span></div>
+                <div class="legend-row"><span class="legend-swatch amber"></span><span
+                    class="legend-name">Tazas</span><span class="legend-pct">27%</span></div>
+              </div>
+            </div>
+
+            <div class="report-chart-card full">
+              <div class="chart-header">
+                <div>
+                  <h3 class="chart-title">Actividad semanal comparativa</h3>
+                  <p class="chart-subtitle">Últimas 4 semanas por producto</p>
+                </div>
+              </div>
+              <div class="grouped-bars">
+                <div class="gb-group">
+                  <div class="gb-bars">
+                    <div class="gb-bar" style="height:60%;background:#1d4ed8" title="Semana 1: 560"></div>
+                    <div class="gb-bar" style="height:75%;background:#3b82f6" title="Semana 2: 700"></div>
+                    <div class="gb-bar" style="height:55%;background:#93c5fd" title="Semana 3: 515"></div>
+                    <div class="gb-bar" style="height:90%;background:#bfdbfe" title="Semana 4: 561"></div>
+                  </div>
+                  <span class="gb-label">Botellas</span>
+                </div>
+                <div class="gb-group">
+                  <div class="gb-bars">
+                    <div class="gb-bar" style="height:45%;background:#059669" title="Semana 1"></div>
+                    <div class="gb-bar" style="height:65%;background:#10b981" title="Semana 2"></div>
+                    <div class="gb-bar" style="height:50%;background:#34d399" title="Semana 3"></div>
+                    <div class="gb-bar" style="height:80%;background:#a7f3d0" title="Semana 4"></div>
+                  </div>
+                  <span class="gb-label">Celulares</span>
+                </div>
+                <div class="gb-group">
+                  <div class="gb-bars">
+                    <div class="gb-bar" style="height:50%;background:#d97706" title="Semana 1"></div>
+                    <div class="gb-bar" style="height:70%;background:#f59e0b" title="Semana 2"></div>
+                    <div class="gb-bar" style="height:60%;background:#fbbf24" title="Semana 3"></div>
+                    <div class="gb-bar" style="height:75%;background:#fde68a" title="Semana 4"></div>
+                  </div>
+                  <span class="gb-label">Tazas</span>
+                </div>
+              </div>
+              <div class="gb-legend">
+                <span><span class="gs" style="background:#1d4ed8"></span>Semana 1</span>
+                <span><span class="gs" style="background:#3b82f6"></span>Semana 2</span>
+                <span><span class="gs" style="background:#93c5fd"></span>Semana 3</span>
+                <span><span class="gs" style="background:#bfdbfe;border:1px solid #93c5fd"></span>Semana 4</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================== SETTINGS ============================== -->
+        <section id="page-settings" class="page">
+          <div class="page-hero">
+            <div>
+              <h1 class="page-title">Configuración</h1>
+              <p class="page-subtitle">Administre la información y preferencias del sistema</p>
+            </div>
+          </div>
+
+          <div class="settings-grid">
+            <div class="settings-panel">
+              <div class="sp-header">
+                <div class="sp-icon blue"><svg viewBox="0 0 20 20" fill="none" width="18" height="18">
+                    <rect x="3" y="3" width="14" height="14" rx="3" stroke="white" stroke-width="1.8" />
+                    <circle cx="10" cy="8.5" r="2.5" stroke="white" stroke-width="1.5" />
+                    <path d="M5 15.5C5 13.3 7.2 11.5 10 11.5S15 13.3 15 15.5" stroke="white" stroke-width="1.5"
+                      stroke-linecap="round" />
+                  </svg></div>
+                <div>
+                  <h3 class="sp-title">Perfil de empresa</h3>
+                  <p class="sp-desc">Información corporativa del sistema</p>
+                </div>
+              </div>
+              <div class="sp-fields">
+                <div class="sf"><label>Nombre de la empresa</label><input type="text" value="Kaiser Logistics S.A." />
+                </div>
+                <div class="sf"><label>Código de instalación</label><input type="text" value="KL-MX-0012" /></div>
+                <div class="sf"><label>Ciudad</label><input type="text" value="Ciudad de México" /></div>
+                <div class="sf"><label>Zona horaria</label><select>
+                    <option>UTC-6 (Centro de México)</option>
+                    <option>UTC-5</option>
+                    <option>UTC-7</option>
+                  </select></div>
+              </div>
+              <button class="btn-primary sp-save">Guardar cambios</button>
+            </div>
+
+            <div class="settings-panel">
+              <div class="sp-header">
+                <div class="sp-icon teal"><svg viewBox="0 0 20 20" fill="none" width="18" height="18">
+                    <rect x="2" y="8" width="16" height="10" rx="2" stroke="white" stroke-width="1.8" />
+                    <path d="M6 8V6C6 4.3 7.8 3 10 3C12.2 3 14 4.3 14 6V8" stroke="white" stroke-width="1.8" />
+                    <circle cx="10" cy="13" r="1.5" fill="white" />
+                  </svg></div>
+                <div>
+                  <h3 class="sp-title">Configuración de almacenes</h3>
+                  <p class="sp-desc">Zonas y capacidades operativas</p>
+                </div>
+              </div>
+              <div class="sp-fields">
+                <div class="sf"><label>Capacidad Zona A (uds)</label><input type="number" value="200" /></div>
+                <div class="sf"><label>Capacidad Zona B (uds)</label><input type="number" value="350" /></div>
+                <div class="sf"><label>Capacidad Zona C (uds)</label><input type="number" value="150" /></div>
+                <div class="sf toggle-row"><label>Modo de alta capacidad</label>
+                  <div class="toggle on" onclick="this.classList.toggle('on')">
+                    <div class="tknob"></div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn-primary sp-save">Guardar cambios</button>
+            </div>
+
+            <div class="settings-panel">
+              <div class="sp-header">
+                <div class="sp-icon amber"><svg viewBox="0 0 20 20" fill="none" width="18" height="18">
+                    <circle cx="10" cy="10" r="2.5" stroke="white" stroke-width="1.8" />
+                    <path
+                      d="M10 2.5V4M10 16V17.5M2.5 10H4M16 10H17.5M4.4 4.4L5.5 5.5M14.5 14.5L15.6 15.6M4.4 15.6L5.5 14.5M14.5 5.5L15.6 4.4"
+                      stroke="white" stroke-width="1.8" stroke-linecap="round" />
+                  </svg></div>
+                <div>
+                  <h3 class="sp-title">Preferencias del sistema</h3>
+                  <p class="sp-desc">Comportamiento general de la plataforma</p>
+                </div>
+              </div>
+              <div class="sp-fields">
+                <div class="sf toggle-row"><label>Actualización automática</label>
+                  <div class="toggle on" onclick="this.classList.toggle('on')">
+                    <div class="tknob"></div>
+                  </div>
+                </div>
+                <div class="sf toggle-row"><label>Modo de alta precisión</label>
+                  <div class="toggle" onclick="this.classList.toggle('on')">
+                    <div class="tknob"></div>
+                  </div>
+                </div>
+                <div class="sf toggle-row"><label>Registro detallado</label>
+                  <div class="toggle on" onclick="this.classList.toggle('on')">
+                    <div class="tknob"></div>
+                  </div>
+                </div>
+                <div class="sf"><label>Intervalo de reporte (min)</label><input type="number" value="15" /></div>
+              </div>
+              <button class="btn-primary sp-save">Guardar cambios</button>
+            </div>
+
+            <div class="settings-panel">
+              <div class="sp-header">
+                <div class="sp-icon green"><svg viewBox="0 0 20 20" fill="none" width="18" height="18">
+                    <path d="M10 2C7.2 2 5 4.2 5 7V11L3 13H17L15 11V7C15 4.2 12.8 2 10 2Z" stroke="white"
+                      stroke-width="1.8" stroke-linejoin="round" />
+                    <path d="M8 14C8 15.1 8.9 16 10 16C11.1 16 12 15.1 12 14" stroke="white" stroke-width="1.8" />
+                  </svg></div>
+                <div>
+                  <h3 class="sp-title">Notificaciones</h3>
+                  <p class="sp-desc">Alertas y avisos del sistema</p>
+                </div>
+              </div>
+              <div class="sp-fields">
+                <div class="sf toggle-row"><label>Operación completada</label>
+                  <div class="toggle on" onclick="this.classList.toggle('on')">
+                    <div class="tknob"></div>
+                  </div>
+                </div>
+                <div class="sf toggle-row"><label>Alerta de capacidad</label>
+                  <div class="toggle on" onclick="this.classList.toggle('on')">
+                    <div class="tknob"></div>
+                  </div>
+                </div>
+                <div class="sf toggle-row"><label>Reporte diario automático</label>
+                  <div class="toggle" onclick="this.classList.toggle('on')">
+                    <div class="tknob"></div>
+                  </div>
+                </div>
+                <div class="sf toggle-row"><label>Alertas por correo electrónico</label>
+                  <div class="toggle on" onclick="this.classList.toggle('on')">
+                    <div class="tknob"></div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn-primary sp-save">Guardar cambios</button>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="./script.js"></script>
+</body>
+
+</html>
